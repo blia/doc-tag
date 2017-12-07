@@ -1,20 +1,17 @@
 const dict = new WeakMap();
 
 export const doc = (...args) => {
-  const [strings] = args;
+  const [strings, ...keys] = args;
   if (Array.isArray(strings) && typeof strings.raw !== 'undefined') {
-    const description = String.raw(...args);
+
     return subj => {
+      const description = String.raw(strings, ...keys.map(key => subj[key]));
       dict.set(subj, description);
       return subj;
     };
   }
   const [subj] = args;
-  if (dict.has(subj)) {
-    return dict.get(subj);
-  } else {
-    return 'Undocumented subject';
-  }
+  return dict.has(subj) ? dict.get(subj) : 'Undocumented subject';
 };
 
 export default doc;

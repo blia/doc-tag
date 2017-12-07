@@ -1,7 +1,27 @@
 import doc from '../src';
-import fun from './lib';
 
-const add = doc`this func adds x to y`((x, y) => x + y);
+const api = {
+  get() {
+    return { id: 1, name: 'Moz' };
+  }
+};
 
-console.log(doc(fun));
+const add = doc
+  `this func adds x to y`
+  ((x, y) => x + y);
+
 console.log(doc(add));
+
+const foo = doc
+  `Hey, this is function ${'name'}`
+  (function bar() {
+    return 'noop';
+  });
+
+console.log(doc(foo));
+
+const user = doc
+  `This is User object with id ${'id'}`
+  (api.get('user', 1));
+
+console.log(doc(user));

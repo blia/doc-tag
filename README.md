@@ -13,3 +13,12 @@ const add = doc
 // take docs in runtime
 doc(add); // => 'this func adds x to y'
 ```
+
+```js
+// You can use keys in description
+const user = doc
+  `This is User object with id ${'id'}`
+  (api.get('user', 1));
+
+doc(user); // => 'This is User object with id 1'
+```
