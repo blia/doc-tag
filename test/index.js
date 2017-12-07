@@ -2,7 +2,9 @@ import doc from '../src';
 
 const api = {
   get() {
-    return { id: 1, name: 'Moz' };
+    return new Promise(res =>
+      setTimeout(_ => res({ id: 1, name: 'Moz' }), 1000)
+    );
   }
 };
 
