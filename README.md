@@ -1,4 +1,6 @@
-# doc-tag
+# [WiP] doc-tag
+
+**Warning**: this is a proof-of-concept implementation. Not ready for use yet.
 
 ## Usage
 
