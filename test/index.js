@@ -27,3 +27,4 @@ const user = describe
   (api.get('user', 1));
 
 console.log(doc(user));
+setTimeout(_ => console.log(doc(user)), 1001)
