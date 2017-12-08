@@ -1,8 +1,9 @@
 {
   "name": "doc-tag",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utility for documenting code in runtime",
   "main": "dist/index.js",
+  "repository": "https://github.com/blia/doc-tag",
   "scripts": {
     "test": "babel-node ./test/index.js",
     "build": "babel ./src/index.js -o ./dist/index.js"
