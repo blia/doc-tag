@@ -2,21 +2,16 @@ const dict = new WeakMap();
 const isFrozenArray = val => Array.isArray(val) && Object.isFrozen(val);
 const isTemplateObject = val => isFrozenArray(val) && isFrozenArray(val.raw);
 
-export const doc = (...args) => {
-  const [first] = args;
+export const doc = (first, ...keys) => {
   if (isTemplateObject(first)) {
     return subj => {
-      const desc = String.raw(...args);
+      const desc = String.raw(first, ...keys.map(key => subj[key]));
       dict.set(subj, desc);
       return subj;
     };
   }
 
-  if (dict.has(first)) {
-    return dict.get(first);
-  } else {
-    return 'Undocumented subject';
-  }
+  return dict.get(first) || 'Undocumented subject';
 };
 
 export default doc;
