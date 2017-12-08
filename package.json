@@ -1,17 +1,20 @@
 {
   "name": "doc-tag",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
+  "version": "0.0.1",
+  "description": "Utility for documenting code in runtime",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "babel-node ./test/index.js",
+    "build": "babel ./src/index.js -o ./dist/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "utility",
+    "documentation",
+    "doc-sctring",
+    "template-string"
+  ],
+  "author": "Kyrylo Yakovenko",
+  "license": "MIT",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-preset-env": "^1.6.1"
