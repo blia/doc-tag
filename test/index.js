@@ -1,4 +1,4 @@
-import doc from '../src';
+import describe, {doc} from '../src';
 
 const api = {
   get() {
@@ -22,7 +22,7 @@ const foo = doc
 
 console.log(doc(foo));
 
-const user = doc
+const user = describe
   `This is User object with id ${'id'}`
   (api.get('user', 1));
 
