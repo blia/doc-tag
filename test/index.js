@@ -28,3 +28,14 @@ const user = describe
 
 console.log(doc(user));
 setTimeout(_ => console.log(doc(user)), 1001)
+
+const nullValue = describe
+  `null`(null);
+
+doc(nullValue);
+
+
+const numberValue = describe
+  `null`(123);
+
+doc(numberValue);
