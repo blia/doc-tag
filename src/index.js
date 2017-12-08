@@ -1,17 +1,17 @@
 const dict = new WeakMap();
+const isFrozenArray = val => Array.isArray(val) && Object.isFrozen(val);
+const isTemplateObject = val => isFrozenArray(val) && isFrozenArray(val.raw);
 
-export const doc = (...args) => {
-  const [strings, ...keys] = args;
-  if (Array.isArray(strings) && typeof strings.raw !== 'undefined') {
-
+export const doc = (first, ...keys) => {
+  if (isTemplateObject(first)) {
     return subj => {
-      const description = String.raw(strings, ...keys.map(key => subj[key]));
-      dict.set(subj, description);
+      const desc = String.raw(first, ...keys.map(key => subj[key]));
+      dict.set(subj, desc);
       return subj;
     };
   }
-  const [subj] = args;
-  return dict.has(subj) ? dict.get(subj) : 'Undocumented subject';
+
+  return dict.get(first) || 'Undocumented subject';
 };
 
 export default doc;
