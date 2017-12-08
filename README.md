@@ -37,10 +37,9 @@ export default described
   (new UserStore());
 ```
 
-Take docs in runtime
+Take docs in runtime:
 
 ```js
-// 
 doc(add);
 // => this func adds x to y
 
